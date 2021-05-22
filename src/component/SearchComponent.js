@@ -22,7 +22,7 @@ export default function SearchComponent() {
                 placeholder = "アニメタイトル入力"
                  variant="outlined" 
                  inputProps={{ style: { fontSize:25,fontWeight:800, padding:"20px 10px 20px 10px" , color: 'white'}}}
-                 style = {{width: 800,marginBottom:90}}
+                 style = {{width: 800,marginBottom:90,}}
                  className={classes.root}
                  />   
         </Box>

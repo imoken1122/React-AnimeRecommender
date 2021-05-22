@@ -17,14 +17,18 @@ const useStyles = makeStyles((theme) => ({
    ct:{
     backgroundColor: "transparent",
 
-    width :"100%", 
+    width:"100%",
     height:700,
    },
    title:{
-       paddingTop:300,
+       paddingTop:"20vh",
+       paddingBottom:"10vh",
+       fontSize:60,
+       color:"white",
+       fontWeight:800,
    },
    btn:{
-       marginTop:70,
+       marginTop:40,
        background:  "rgba(256,151,87,0.01)",
        padding:"25px 70px 25px 70px",
        borderColor:"#FF670B",
@@ -46,8 +50,8 @@ export default function TopComponent() {
     return(
         <div className={classes.div}>
             <Container className={classes.ct}>
-                <Box className={classes.title}>
-
+                <Box textAlign="center"  className={classes.title}>
+                    Anime Recommender
                 </Box>
 
                 <SearchComponent />
