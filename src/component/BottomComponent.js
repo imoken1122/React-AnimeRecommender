@@ -8,7 +8,7 @@ import SearchComponent from "./SearchComponent"
 import PostOption from "./PostOption"
 import Button from '@material-ui/core/Button';
 import TitleTable from "./Table"
-import tile from '../images/tile.jpg';
+import tile from '../images/tile2.jpg';
 const useStyles = makeStyles((theme) => ({
     divimg:{
         backgroundImage: `url(${tile})`,

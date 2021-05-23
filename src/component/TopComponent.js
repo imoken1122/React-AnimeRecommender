@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useLayoutEffect,useState} from 'react';
 import Toolbar from '@material-ui/core/Toolbar'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,7 +9,7 @@ import SearchComponent from "./SearchComponent"
 import PostOption from "./PostOption"
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
-import tile from '../images/tile.jpg';
+import tile from '../images/tile2.jpg';
 const useStyles = makeStyles((theme) => ({
     divimg:{
         backgroundImage: `url(${tile})`,
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
    },
    btn:{
        marginTop:40,
-       background:  "rgba(256,151,87,0.01)",
+       background:  "rgba(0,0,0,0.3)",
        padding:"25px 70px 25px 70px",
        borderColor:"#FF670B",
        '&:hover': {
@@ -58,7 +58,8 @@ export default function TopComponent(props) {
     const classes = useStyles()
 
     const {postinfo, setPostInfo} = useContext(TitleContext)
-    function onClickHandler(){
+    console.log(2)
+    const onClickHandler = React.useCallback(() => {
        
             let jsoninfo = JSON.stringify(postinfo)
             const method = "POST"
@@ -70,12 +71,13 @@ export default function TopComponent(props) {
             }).then(res => {
                 console.log(res)
                 props.setRecommendtitle(res.data.recommend)
-
             }).catch((error) =>{
                 console.error(error);
             })
+                props.scrollFunc()
+            
         
-    }
+    },[])
     return(
         <div className={classes.divimg}>
         <div className={classes.div}>

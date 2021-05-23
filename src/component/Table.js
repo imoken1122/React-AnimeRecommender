@@ -80,6 +80,7 @@ const useStyles = makeStyles({
         fontWeight:800,
         marginTop:20,
         marginBottom:20,
+
     
   },
   cell:{
