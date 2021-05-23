@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
+import {RecommendContext} from "../Home"
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-
+import Link from "@material-ui/core/Link"
 const columns = [
 
   {
@@ -20,7 +21,7 @@ const columns = [
     minWidth: 6,
 
   },
-  { id: 'name', label: 'アニメタイトル', minWidth: 200 ,  align: 'center',},
+  { id: 'recommend_title', label: 'アニメタイトル', minWidth: 200 ,  align: 'center',},
   {
     id: 'score',
     label: 'スコア',
@@ -30,9 +31,9 @@ const columns = [
  
 ];
 
-function createData(rank, name, score) {
+function createData(rank, recommend_title, score) {
 
-  return {rank, name, score };
+  return {rank, recommend_title, score };
 }
 
 const rows = [
@@ -61,12 +62,14 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     height:650,
+    backgroundColor: 'rgba(255,219,186, 0.1)'
 
   },
   container: {
     maxHeight:650,
 
-      backgroundColor:"#6C6966"
+      backgroundColor:"rgba(0,0,0,0.1)"
+      
   },
   head:{
         backgroundColor:"#AB5A25"  
@@ -77,9 +80,7 @@ const useStyles = makeStyles({
         fontWeight:800,
         marginTop:20,
         marginBottom:20,
-
-
-
+    
   },
   cell:{
       borderBottomColor:"#4D4745"
@@ -88,22 +89,14 @@ const useStyles = makeStyles({
 
 export default function TitleTable() {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(40);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
+    const {recommendtitle, setRecommendtitle} = useContext(RecommendContext)
+  console.log(recommendtitle.recommend)
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table" style={{height:850}}>
+        <Table stickyHeader aria-label="sticky table" style={{height:150}}>
           <TableHead >
             <TableRow style={{backgroundColor:"#AB5A25"}}>
               {columns.map((column) => (
@@ -119,15 +112,16 @@ export default function TitleTable() {
             </TableRow>
           </TableHead>
           <TableBody >
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {recommendtitle.map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code} >
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.rank}  >
                   {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align} className={classes.cell}>
-                        <Box textAlign="center" className={classes.row}>{value}</Box>
+                    const value = row[column.id] /*createData(row.rank, row.recommend_title, row.score)*/
 
+                    return (
+
+                      <TableCell component={Link} href={`https://www.google.com/search?q=${value}`} target="_blank" style={{textDecoration: "none"}} key={column.id} align={column.align} className={classes.cell}>
+                           <Box textAlign="center" className={classes.row}>{value}</Box>
                       </TableCell>
                     );
                   })}
