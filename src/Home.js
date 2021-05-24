@@ -60,7 +60,7 @@ function Home() {
             }) 
         setIsLoading(false)
 
-          sleep(500)
+          sleep(1100)
         scrollToBottomOfList()
 
 
