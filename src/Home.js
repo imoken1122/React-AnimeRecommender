@@ -43,7 +43,7 @@ function Home() {
 
             let jsoninfo = JSON.stringify(postinfo)
             const method = "POST"
-           axios.post("https://fastapi-recommender/api/recommend/" , jsoninfo,{
+           axios.post("https://fastapi-recommender.herokuapp.com/api/recommend/" , jsoninfo,{
                 headers:{
                     'Accept': 'application/json',
                     'Content-type':'application/json'    
