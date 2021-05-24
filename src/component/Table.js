@@ -18,14 +18,14 @@ const columns = [
     id: 'rank',
     label: 'ランク',
     align: 'center',
-    minWidth: 6,
+    minWidth: 60 ,
 
   },
   { id: 'recommend_title', label: 'アニメタイトル', minWidth: 200 ,  align: 'center',},
   {
     id: 'score',
     label: 'スコア',
-    minWidth: 5,
+    minWidth:60,
     align: 'center',
   },
  
@@ -61,12 +61,12 @@ const rows = [
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    height:650,
+    height:"73vh",
     backgroundColor: 'rgba(255,219,186, 0.1)'
 
   },
   container: {
-    maxHeight:650,
+    maxHeight:"73vh",
 
       backgroundColor:"rgba(0,0,0,0.1)"
       
@@ -93,7 +93,7 @@ export default function TitleTable() {
 
 
     const {recommendtitle, setRecommendtitle} = useContext(RecommendContext)
-  console.log(recommendtitle.recommend)
+
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -113,7 +113,7 @@ export default function TitleTable() {
             </TableRow>
           </TableHead>
           <TableBody >
-            {recommendtitle.map((row) => {
+            {recommendtitle.recommend.map((row) => {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.rank}  >
                   {columns.map((column) => {

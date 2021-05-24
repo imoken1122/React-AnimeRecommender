@@ -34,17 +34,28 @@ const useStyles = makeStyles((theme) => ({
         fontSize:30,
         fontWeight:800,
         color: '#FF873F'
+    },
+    sub:{
+        color: 'white' ,
+        fontSize:20,
+        fontWeight:800,
+        marginTop:-40,
+        marginBottom:40
     }
   
    })); 
 export default function BottomComponent(props) {
     const classes = useStyles()
+    let title = props.anime_title
     return(
     <div className={classes.divimg}>
     <div className={classes.div}>
             <Container className={classes.ct}>
                 <Box textAlign="center" className={classes.title}>
-                    「{props.anime_title}」の類似アニメ
+                    「{title}」の類似アニメ
+                </Box>
+                <Box textAlign="center" className={classes.sub}>
+                    アニメタイトルをクリックするとGoogle検索
                 </Box>
                 <TitleTable />
             </Container>

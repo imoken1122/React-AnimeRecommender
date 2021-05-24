@@ -19,9 +19,7 @@ export default function SearchComponent(props) {
     const classes = useStyles()
     const {postinfo, setPostInfo} = useContext(TitleContext)
     function ChangeHandler(e){
-      console.log(postinfo)
       setPostInfo(postinfo => ({...postinfo,anime_title:e.target.value}))
-    
     }
   return (
        <Box textAlign="center">
@@ -33,6 +31,7 @@ export default function SearchComponent(props) {
                  style = {{width: 800,marginBottom:90,}}
                  className={classes.root}
                  onChange={ChangeHandler}
+
                  />   
         </Box>
 

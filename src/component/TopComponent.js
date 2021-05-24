@@ -31,11 +31,22 @@ const useStyles = makeStyles((theme) => ({
     height:700,
    },
    title:{
-       paddingTop:"20vh",
-       paddingBottom:"10vh",
-       fontSize:60,
+       paddingTop:"10vh",
+
+       fontSize:80,
        color:"white",
+       fontFamily:'Roboto',
+       letterSpacing:-3,
+       lineHeight:2,
        fontWeight:800,
+   },
+   subtxt:{
+       marginTop:-20,
+       color:"white",
+       fontSize:23,
+       fontWeight:800,
+       paddingBottom:"10vh",
+
    },
    btn:{
        marginTop:40,
@@ -58,26 +69,12 @@ export default function TopComponent(props) {
     const classes = useStyles()
 
     const {postinfo, setPostInfo} = useContext(TitleContext)
-    console.log(2)
-    const onClickHandler = React.useCallback(() => {
-       
-            let jsoninfo = JSON.stringify(postinfo)
-            const method = "POST"
-            axios.post("http://localhost:8000/api/recommend/" , jsoninfo,{
-                headers:{
-                    'Accept': 'application/json',
-                    'Content-type':'application/json'    
-                  },
-            }).then(res => {
-                console.log(res)
-                props.setRecommendtitle(res.data.recommend)
-            }).catch((error) =>{
-                console.error(error);
-            })
-                props.scrollFunc()
-            
+
+    const onClickHandler = () => {
+       props.Post()
+          
         
-    },[])
+    }
     return(
         <div className={classes.divimg}>
         <div className={classes.div}>
@@ -85,7 +82,9 @@ export default function TopComponent(props) {
                 <Box textAlign="center"  className={classes.title}>
                     Anime Recommender
                 </Box>
-
+                <Box textAlign="center"  className={classes.subtxt}>
+                    〜 約500万件のユーザレビューを用いて類似アニメをレコメンドします 〜
+                </Box>
                 <SearchComponent/>
                 <Box >
                     <PostOption />
