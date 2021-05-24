@@ -5,7 +5,7 @@ import BottomComponent from "./component/BottomComponent"
 import Divider from '@material-ui/core/Divider';
 import axios from "axios"
 export const TitleContext = React.createContext({anime_title:"",num_item:"",model:""})
-export const RecommendContext = React.createContext({fortitle:"", recommend:[]})
+export const RecommendContext = React.createContext({fortitle:"", recommend:[{"rank":1,"recommend_title":"あああ","score":0.3}]})
 const initPostInfo = {anime_title:"",num_item:"10",model:"RankMF"}
 const initRecommendTitle = {fortitle:"", recommend:[]}
 

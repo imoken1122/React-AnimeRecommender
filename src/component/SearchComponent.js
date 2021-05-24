@@ -27,8 +27,8 @@ export default function SearchComponent(props) {
 
                 placeholder = "アニメタイトル入力"
                  variant="outlined" 
-                 inputProps={{ style: { fontSize:25,fontWeight:800, padding:"20px 10px 20px 10px" ,marginLeft:25, color: 'white'}}}
-                 style = {{width: 800,marginBottom:90,}}
+                 inputProps={{ style: { fontSize:25,fontWeight:800, padding:"17px 10px 17px 10px" ,marginLeft:25, color: 'white'}}}
+                 style = {{width: 720,marginBottom:90,}}
                  className={classes.root}
                  onChange={ChangeHandler}
 

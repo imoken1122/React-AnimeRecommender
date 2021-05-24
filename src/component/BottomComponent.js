@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
      height:"100vh",
     },
     title:{
-        padding:"60px 10px 60px 10px",
-        fontSize:30,
+        padding:"30px 10px 45px 10px",
+        fontSize:25,
         fontWeight:800,
         color: '#FF873F'
     },
     sub:{
         color: 'white' ,
-        fontSize:20,
+        fontSize:17,
         fontWeight:800,
         marginTop:-40,
         marginBottom:40

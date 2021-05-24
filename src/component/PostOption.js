@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft:-30,
         
         fontWeight:800,
-         fontSize:25, 
+         fontSize:20, 
          color:"white"
      },
      rtitle:{
@@ -52,8 +52,8 @@ export default function RowRadioButtonsGroup() {
       
       <Box textAlign="center" style={{marginLeft:40,marginRight:90,marginBottom:50,}}>
       <RadioGroup row defaultValue="RankMF" onChange={ChangeModelHandler}>
-        <FormControlLabel value="RankMF" control={<Radio  classes={{root: classes.radio, checked: classes.checked}} />} label={<Box fontSize={25} fontWeight={700}>RankMF</Box>} className={classes.rtitle} />
-        <FormControlLabel value="MF" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={25}fontWeight={700}> MF</Box>} className={classes.rtitle}/>
+        <FormControlLabel value="RankMF" control={<Radio  classes={{root: classes.radio, checked: classes.checked}} />} label={<Box fontSize={20} fontWeight={700}>RankMF</Box>} className={classes.rtitle} />
+        <FormControlLabel value="MF" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={20}fontWeight={700}> MF</Box>} className={classes.rtitle}/>
         </RadioGroup>
         </Box>
     </FormControl>
@@ -63,9 +63,9 @@ export default function RowRadioButtonsGroup() {
       <Box component="legend" className={classes.title}>レコメンドする数</Box>
     <Box textAlign="center" style={{marginLeft:0}}>
       <RadioGroup row defaultValue="10" onChange={ChangeNumHandler}>
-        <FormControlLabel value="10"  control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={25}fontWeight={700}> 10</Box>} className={classes.rtitle}/>
-        <FormControlLabel value="15" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={25}fontWeight={700}> 15</Box>} className={classes.rtitle}/>
-        <FormControlLabel value="20" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={25}fontWeight={700}> 20</Box>}className={classes.rtitle}/>
+        <FormControlLabel value="10"  control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={20}fontWeight={700}> 10</Box>} className={classes.rtitle}/>
+        <FormControlLabel value="15" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={20}fontWeight={700}> 15</Box>} className={classes.rtitle}/>
+        <FormControlLabel value="20" control={<Radio  classes={{root: classes.radio, checked: classes.checked}}/>} label={<Box fontSize={20}fontWeight={700}> 20</Box>}className={classes.rtitle}/>
       </RadioGroup>
     </Box>
     </FormControl>

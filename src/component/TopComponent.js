@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
    title:{
        paddingTop:"10vh",
 
-       fontSize:80,
+       fontSize:64,
        color:"white",
        fontFamily:'Roboto',
        letterSpacing:-3,
@@ -42,16 +42,18 @@ const useStyles = makeStyles((theme) => ({
    },
    subtxt:{
        marginTop:-20,
+       marginBottom:-17,
        color:"white",
-       fontSize:23,
+       fontSize:18,
        fontWeight:800,
        paddingBottom:"10vh",
 
    },
    btn:{
-       marginTop:40,
+       marginTop:"1vh",
+       marginBottom:"10vh",
        background:  "rgba(0,0,0,0.3)",
-       padding:"25px 70px 25px 70px",
+       padding:"20px 55px 20px 55px",
        borderColor:"#FF670B",
        '&:hover': {
         background:  "rgba(256,151,87,0.15)",
@@ -91,7 +93,7 @@ export default function TopComponent(props) {
                 </Box>
                 <Box textAlign="center">
                     <Button disabled = {postinfo.anime_title.length == 0 ? true : false} variant="outlined" className={classes.btn}  onClick={onClickHandler} startIcon={<></>}>
-                        <Box fontWeight={800} color={postinfo.anime_title.length == 0 ? "#804725" : "#FF904C"} fontSize={20}> アニメを検索</Box>
+                        <Box fontWeight={800} color={postinfo.anime_title.length == 0 ? "#804725" : "#FF904C"} fontSize={18}> アニメを検索</Box>
                     </Button>
                 </Box>
             </Container>

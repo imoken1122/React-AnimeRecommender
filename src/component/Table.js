@@ -75,11 +75,11 @@ const useStyles = makeStyles({
         backgroundColor:"#AB5A25"  
   },
   row:{
-      fontSize:20,
+      fontSize:16,
         color:"white",
         fontWeight:800,
-        marginTop:20,
-        marginBottom:20,
+        marginTop:12,
+        marginBottom:12,
 
     
   },
@@ -107,7 +107,7 @@ export default function TitleTable() {
                   style={{minWidth:column.minWidth}}
 
                 >
-                  <Box fontSize={20} fontWeight={800} color="#3E3939">{column.label}</Box>
+                  <Box fontSize={16} fontWeight={800} color="#3E3939">{column.label}</Box>
                 </TableCell>
               ))}
             </TableRow>
