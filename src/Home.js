@@ -5,8 +5,9 @@ import Divider from '@material-ui/core/Divider';
 import axios from "axios"
 import tile from './images/tile.jpg';
 import { makeStyles } from '@material-ui/core/styles';
+
 export const TitleContext = React.createContext({anime_title:"",num_item:"",model:""})
-export const RecommendContext = React.createContext({fortitle:"", recommend:[{"rank":1,"recommend_title":"あああ","score":0.3}]})
+export const RecommendContext = React.createContext({fortitle:"", recommend:[]})
 const initPostInfo = {anime_title:"",num_item:"10",model:"RankMF"}
 const initRecommendTitle = {fortitle:"", recommend:[]}
 const url = "http://localhost:8000/api/recommend"
@@ -72,9 +73,10 @@ function Home() {
             }) 
         setIsLoading(false)
 
-          sleep(1100)
+        sleep(2000)
         scrollToBottomOfList()
 
+            
 
     }
 // 最初だけ

@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useRef} from 'react';
 
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles';
@@ -71,10 +71,13 @@ export default function TopComponent(props) {
 
     const {postinfo, setPostInfo} = useContext(TitleContext)
 
-    const onClickHandler = () => {
-       props.Post()
-          
-        
+
+
+    const onClickHandler = (e) => {
+
+        e.preventDefault()
+            props.Post()
+                
     }
     return(
 
