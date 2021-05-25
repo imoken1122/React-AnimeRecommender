@@ -1,14 +1,17 @@
-import React, { useState, useRef,useEffect,useLayoutEffect} from 'react'
-import BackToTop from "./component/Header"
+import React, { useState,useEffect} from 'react'
 import TopComponent from "./component/TopComponent"
 import BottomComponent from "./component/BottomComponent"
 import Divider from '@material-ui/core/Divider';
 import axios from "axios"
+import tile from './images/tile.jpg';
+import { makeStyles } from '@material-ui/core/styles';
+
 export const TitleContext = React.createContext({anime_title:"",num_item:"",model:""})
 export const RecommendContext = React.createContext({fortitle:"", recommend:[]})
 const initPostInfo = {anime_title:"",num_item:"10",model:"RankMF"}
 const initRecommendTitle = {fortitle:"", recommend:[]}
-
+const url = "http://localhost:8000/api/recommend"
+const deploy = "https://fastapi-recommender.herokuapp.com/api/recommend"
 function sleep(a){
   var dt1 = new Date().getTime();
   var dt2 = new Date().getTime();
@@ -17,13 +20,23 @@ function sleep(a){
   }
   return;
 }
-
+const useStyles = makeStyles((theme) => ({
+  divimg:{
+      backgroundImage: `url(${tile})`,
+      backgroundPosition:"center center",
+      backgroundAttachment:"fixed",
+      //backgroundSize:"cover",
+      width:"100%",
+      height:"auto",
+      margin:0,
+  }
+}))
 
 function Home() {
     let [isloading,setIsLoading] = useState(true)
     let [isInit,setisInit] = useState(true)
     let [postinfo, setPostInfo] = useState(initPostInfo)
-
+  const classes = useStyles()
      let [recommendtitle, setRecommendtitle] = useState(initRecommendTitle)
 
     const ref = React.useRef(null)
@@ -43,7 +56,9 @@ function Home() {
 
             let jsoninfo = JSON.stringify(postinfo)
             const method = "POST"
-           axios.post("https://backend-fastapi-recommender/api/recommend/" , jsoninfo,{
+
+           axios.post(`${deploy}` , jsoninfo,{
+
                 headers:{
                     'Accept': 'application/json',
                     'Content-type':'application/json'    
@@ -60,9 +75,10 @@ function Home() {
             }) 
         setIsLoading(false)
 
-          sleep(500)
+        sleep(2000)
         scrollToBottomOfList()
 
+            
 
     }
 // 最初だけ
@@ -75,7 +91,7 @@ function Home() {
    
    
     return(
-        <>
+    <div className={classes.divimg}>
             <TitleContext.Provider value={{postinfo,setPostInfo}}>
                 <TopComponent Post={Post}/>
             </TitleContext.Provider>
@@ -88,7 +104,7 @@ function Home() {
                 </>
             }
              <div ref={ref}/>
-        </>
+        </div>
     )
 
 

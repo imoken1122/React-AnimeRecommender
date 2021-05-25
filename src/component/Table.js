@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, {  useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
+
 import TableRow from '@material-ui/core/TableRow';
 import Link from "@material-ui/core/Link"
 const columns = [
@@ -61,12 +61,12 @@ const rows = [
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    height:"73vh",
-    backgroundColor: 'rgba(255,219,186, 0.1)'
-
+    height:"75%",
+    backgroundColor: 'rgba(255,219,186, 0.1)',
+    margin:"10px 0px 30px 0px"
   },
   container: {
-    maxHeight:"73vh",
+    height:"100%",
 
       backgroundColor:"rgba(0,0,0,0.1)"
       
@@ -75,11 +75,11 @@ const useStyles = makeStyles({
         backgroundColor:"#AB5A25"  
   },
   row:{
-      fontSize:20,
+      fontSize:"calc(10px + 0.3vh + 0.3vw)",
         color:"white",
         fontWeight:800,
-        marginTop:20,
-        marginBottom:20,
+        marginTop:"1vw",
+        marginBottom:"1vw",
 
     
   },
@@ -97,7 +97,7 @@ export default function TitleTable() {
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table" style={{height:150}}>
+        <Table stickyHeader aria-label="sticky table" style={{height:0}}>
           <TableHead >
             <TableRow style={{backgroundColor:"#AB5A25"}}>
               {columns.map((column) => (
@@ -107,7 +107,7 @@ export default function TitleTable() {
                   style={{minWidth:column.minWidth}}
 
                 >
-                  <Box fontSize={20} fontWeight={800} color="#3E3939">{column.label}</Box>
+                  <Box fontSize="calc(8px + 1vmin)" fontWeight={800} color="#3E3939">{column.label}</Box>
                 </TableCell>
               ))}
             </TableRow>
