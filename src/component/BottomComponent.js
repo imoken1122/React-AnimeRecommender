@@ -8,36 +8,31 @@ import SearchComponent from "./SearchComponent"
 import PostOption from "./PostOption"
 import Button from '@material-ui/core/Button';
 import TitleTable from "./Table"
-import tile from '../images/tile2.jpg';
 const useStyles = makeStyles((theme) => ({
-    divimg:{
-        backgroundImage: `url(${tile})`,
-     height:"100vh",
-
-    },
+   
     div:{
  
      backgroundColor: "rgba(0,0,0,0.75)",
      width :"100%", 
      height:"100vh",
+     minHeight:700,
+    overflow: "hidden"
     }, 
     ct:{
-     backgroundColor: "transparent",
      backgroundColor: "rgba(0,0,0,0.38)",
 
-
+        height:"100%",
      width :"70%", 
-     height:"100vh",
     },
     title:{
-        padding:"30px 10px 45px 10px",
-        fontSize:25,
+        padding:"50px 10px 45px 10px",
+        fontSize:"calc(15px + 1vmin)",
         fontWeight:800,
         color: '#FF873F'
     },
     sub:{
         color: 'white' ,
-        fontSize:17,
+        fontSize:"calc(5px + 1min)",
         fontWeight:800,
         marginTop:-40,
         marginBottom:40
@@ -48,7 +43,6 @@ export default function BottomComponent(props) {
     const classes = useStyles()
     let title = props.anime_title
     return(
-    <div className={classes.divimg}>
     <div className={classes.div}>
             <Container className={classes.ct}>
                 <Box textAlign="center" className={classes.title}>
@@ -60,7 +54,6 @@ export default function BottomComponent(props) {
                 <TitleTable />
             </Container>
     
-    </div>
     </div>
     )
 }
