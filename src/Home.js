@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const TitleContext = React.createContext({anime_title:"",num_item:"",model:""})
 export const RecommendContext = React.createContext({fortitle:"", recommend:[{"rank":1,"recommend_title":"あああ","score":0.3}]})
 const initPostInfo = {anime_title:"",num_item:"10",model:"RankMF"}
-const initRecommendTitle = {fortitle:"", recommend:[{rank:1,recommend_title:"ようこそ実力主義",score:0.2}]}
+const initRecommendTitle = {fortitle:"", recommend:[]}
 const url = "http://localhost:8000/api/recommend"
 const deploy = "https://fastapi-recommender.herokuapp.com/api/recommend"
 function sleep(a){
