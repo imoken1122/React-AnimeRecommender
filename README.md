@@ -10,13 +10,13 @@ Heroku にデプロイしたデモが[こちら](https://arncmd.herokuapp.com/)
 
 <br>
 
-### 環境
+## 環境
 - npm 7.3.0
 - React 17.0.2
 
 <br>
 
-### プレビュー
+## プレビュー
 
 <br>
 
